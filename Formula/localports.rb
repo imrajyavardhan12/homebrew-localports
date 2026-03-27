@@ -1,8 +1,8 @@
 class Localports < Formula
   desc "Fast local TCP port inspector for macOS"
   homepage "https://github.com/imrajyavardhan12/LocalPorts"
-  url "https://github.com/imrajyavardhan12/LocalPorts/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "14ecbff2c1e3796b69364d39f5acad89dffd478923698a3d5a062e7c6720ef2b"
+  url "https://github.com/imrajyavardhan12/LocalPorts/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "0e09bdcca0f5bdd85a35ebaa96cfd1ff6c4bc71b38b79e52e5e3c96e06dbbd9f"
 
   depends_on "zig"
 
