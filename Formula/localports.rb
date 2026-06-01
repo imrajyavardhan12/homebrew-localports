@@ -1,10 +1,11 @@
 class Localports < Formula
   desc "Fast local TCP port inspector for macOS"
   homepage "https://github.com/imrajyavardhan12/LocalPorts"
-  url "https://github.com/imrajyavardhan12/LocalPorts/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "0e09bdcca0f5bdd85a35ebaa96cfd1ff6c4bc71b38b79e52e5e3c96e06dbbd9f"
+  # The release workflow copies this formula into the tap and replaces url/sha256.
+  url "https://github.com/imrajyavardhan12/LocalPorts/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "03f7952ad2a602dba8038dd265ea55782cc20768a26f249fe7acfb62920f45b0"
 
-  depends_on "zig"
+  depends_on "zig" => :build
 
   def install
     system "zig", "build", "-Doptimize=ReleaseFast"
@@ -13,5 +14,6 @@ class Localports < Formula
 
   test do
     system "#{bin}/localports", "--help"
+    system "#{bin}/localports", "--version"
   end
 end
