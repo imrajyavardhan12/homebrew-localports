@@ -2,8 +2,8 @@ class Localports < Formula
   desc "Fast local TCP port inspector for macOS"
   homepage "https://github.com/imrajyavardhan12/LocalPorts"
   # The release workflow copies this formula into the tap and replaces url/sha256.
-  url "https://github.com/imrajyavardhan12/LocalPorts/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "8731a1124acb6e8dde3694610d0e59078c4d19cba41d7d6453d11ca0091becd1"
+  url "https://github.com/imrajyavardhan12/LocalPorts/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "9c74c6bb683ff96c6b5f9221682e92602fc8e31fe951eb2c91ea48575da3a049"
 
   depends_on "zig" => :build
 
