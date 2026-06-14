@@ -1,23 +1,33 @@
 class Localports < Formula
   desc "Fast local TCP port inspector for macOS"
   homepage "https://github.com/imrajyavardhan12/LocalPorts"
-  # The release workflow copies this formula into the tap and replaces url/sha256.
-  url "https://github.com/imrajyavardhan12/LocalPorts/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "1872431e5cbacd67c0aaa2ffae4ca8162e2291249e6f289de7a61a15a48955a8"
+  version "0.5.3"
+  license "MIT"
 
-  depends_on "zig" => :build
+  # The release workflow cross-compiles the binaries, uploads them as release
+  # assets, and replaces the version/url/sha256 placeholders below. A localports
+  # binary links only /usr/lib/libSystem, so there are no runtime dependencies
+  # and no build toolchain (zig/LLVM) is installed on the user's machine.
+  on_macos do
+    on_arm do
+      url "https://github.com/imrajyavardhan12/LocalPorts/releases/download/v0.5.3/localports-aarch64-macos.tar.gz"
+      sha256 "dec951c6a8bf1fd8320c5134a57e450ab7ad511e225095f37fb1d4cc8d6617cc"
+    end
+    on_intel do
+      url "https://github.com/imrajyavardhan12/LocalPorts/releases/download/v0.5.3/localports-x86_64-macos.tar.gz"
+      sha256 "242d12ccc08a2187db2815ed2c7c3aebc659f262509030bbd3279cc95112c63d"
+    end
+  end
 
   def install
-    system "zig", "build", "-Doptimize=ReleaseFast"
-    bin.install "zig-out/bin/localports"
-    man1.install "man/localports.1"
-    bash_completion.install "completions/localports.bash" => "localports"
-    zsh_completion.install "completions/_localports"
-    fish_completion.install "completions/localports.fish"
+    bin.install "localports"
+    man1.install "localports.1"
+    bash_completion.install "localports.bash" => "localports"
+    zsh_completion.install "_localports"
+    fish_completion.install "localports.fish"
   end
 
   test do
-    system "#{bin}/localports", "--help"
-    system "#{bin}/localports", "--version"
+    assert_match version.to_s, shell_output("#{bin}/localports --version")
   end
 end
