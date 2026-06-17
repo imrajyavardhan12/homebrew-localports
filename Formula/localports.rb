@@ -1,7 +1,7 @@
 class Localports < Formula
   desc "Fast local TCP port inspector for macOS"
   homepage "https://github.com/imrajyavardhan12/LocalPorts"
-  version "0.6.1"
+  version "0.7.0"
   license "MIT"
 
   # The release workflow cross-compiles the binaries, uploads them as release
@@ -10,12 +10,12 @@ class Localports < Formula
   # and no build toolchain (zig/LLVM) is installed on the user's machine.
   on_macos do
     on_arm do
-      url "https://github.com/imrajyavardhan12/LocalPorts/releases/download/v0.6.1/localports-aarch64-macos.tar.gz"
-      sha256 "9ab28eb8a09f5c9625547906fddcc96c4490c1e32411861d5e28691bd3c3954c"
+      url "https://github.com/imrajyavardhan12/LocalPorts/releases/download/v0.7.0/localports-aarch64-macos.tar.gz"
+      sha256 "e0ef0629bc1cba97cae7dc331a7897a00f1df365231d0fc2508f3f81ae1a13e2"
     end
     on_intel do
-      url "https://github.com/imrajyavardhan12/LocalPorts/releases/download/v0.6.1/localports-x86_64-macos.tar.gz"
-      sha256 "4ff5b1e04a9571d15b11d8d5b3b90afafe1f51b90ade2226eb9132bb3f4351b3"
+      url "https://github.com/imrajyavardhan12/LocalPorts/releases/download/v0.7.0/localports-x86_64-macos.tar.gz"
+      sha256 "adc096dbb99e6bc627e7fbe942e48dcd1c6d45d66dfa54052599031ef0673f87"
     end
   end
 
